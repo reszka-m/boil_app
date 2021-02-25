@@ -14,8 +14,13 @@ class TimerBody extends StatefulWidget {
 
 class _TimerBodyState extends State<TimerBody> {
   TimeModel time;
+  bool isCounting = false;
 
   void count() {
+    if (this.isCounting == true) {
+      return;
+    }
+    this.isCounting = true;
     Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {
         widget.time.seconds -= 1;
