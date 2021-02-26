@@ -48,9 +48,6 @@ class Body extends StatelessWidget {
             ],
           ),
         ),
-        TimerPage(
-          time: new TimeModel(minutes: 1, seconds: 35),
-        ),
       ],
     );
   }

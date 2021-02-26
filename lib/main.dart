@@ -1,3 +1,5 @@
+import 'package:boil_app/screens/expanded_page/models/data_model.dart';
+import 'package:boil_app/screens/expanded_page/timer_page.dart';
 import 'package:boil_app/screens/home_page/home_page.dart';
 import 'package:boil_app/theme.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +15,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Boil App',
       theme: theme(),
-      home: HomePage(),
+//      home: HomePage(),
+      home: TimerPage(time: TimeModel(minutes: 1, seconds: 15)),
     );
   }
 }

@@ -7,8 +7,10 @@ class TimerPage extends StatelessWidget {
   final TimeModel time;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: TimerBody(time: this.time),
+    return Scaffold(
+      body: Column(
+        children: [TimerBody(time: this.time)],
+      ),
     );
 //    return Text(
 //      "${time.minutes.toString()}:${time.seconds.toString()}"
