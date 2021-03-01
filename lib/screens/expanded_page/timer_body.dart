@@ -1,6 +1,7 @@
 import 'package:boil_app/screens/expanded_page/models/data_model.dart';
 import 'package:boil_app/theme.dart';
 import 'package:boil_app/constants.dart';
+import 'package:boil_app/screens/expanded_page/components/timer_button.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -106,75 +107,15 @@ class _TimerBodyState extends State<TimerBody> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              RawMaterialButton(
-                onPressed: this.start,
-                child: Container(
-                  width: size.width * 0.4,
-                  height: size.width * 0.4,
-                  margin: EdgeInsets.only(bottom: size.width * 0.05),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: kPrimaryColor,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Text("Start",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
-                ),
-              ),
-              RawMaterialButton(
-                onPressed: this.reset,
-                child: Container(
-                  width: size.width * 0.4,
-                  height: size.width * 0.4,
-                  margin: EdgeInsets.only(bottom: size.width * 0.05),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: kPrimaryColor,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Text("Reset",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
-                ),
-              ),
+              TimerButton(size: size, function: this.start, str: 'Start'),
+              TimerButton(size: size, function: this.reset, str: 'Reset'),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              RawMaterialButton(
-                onPressed: this.add5s,
-                child: Container(
-                  width: size.width * 0.4,
-                  height: size.width * 0.4,
-                  margin: EdgeInsets.only(bottom: size.width * 0.05),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: kPrimaryColor,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Text("+5s",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
-                ),
-              ),
-              RawMaterialButton(
-                onPressed: this.sub5s,
-                child: Container(
-                  width: size.width * 0.4,
-                  height: size.width * 0.4,
-                  margin: EdgeInsets.only(bottom: size.width * 0.05),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: kPrimaryColor,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Text("-5s",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
-                ),
-              ),
+              TimerButton(size: size, function: this.add5s, str: '+5s'),
+              TimerButton(size: size, function: this.sub5s, str: '-5s'),
             ],
           )
         ],
