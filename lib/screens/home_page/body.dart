@@ -1,12 +1,10 @@
 import 'dart:async';
 
 import 'package:boil_app/constants.dart';
-import 'package:boil_app/screens/expanded_page/models/data_model.dart';
-import 'package:boil_app/screens/expanded_page/timer_page.dart';
+import 'package:boil_app/screens/details_screen/models/data_model.dart';
 import 'package:boil_app/screens/home_page/components/search_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:boil_app/screens/expanded_page/timer_body.dart';
 
 class Body extends StatelessWidget {
   @override

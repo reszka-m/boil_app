@@ -1,9 +1,10 @@
-import 'package:boil_app/screens/expanded_page/models/data_model.dart';
+import 'package:boil_app/screens/details_screen/models/data_model.dart';
 import 'package:boil_app/theme.dart';
 import 'package:boil_app/constants.dart';
-import 'package:boil_app/screens/expanded_page/components/timer_button.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
+
+import 'components/timer_button.dart';
 
 class TimerBody extends StatefulWidget {
   final TimeModel time;

@@ -1,6 +1,7 @@
+import 'package:boil_app/screens/details_screen/timer_body.dart';
 import 'package:flutter/material.dart';
-import 'package:boil_app/screens/expanded_page/timer_body.dart';
-import 'package:boil_app/screens/expanded_page/models/data_model.dart';
+
+import 'models/data_model.dart';
 
 class TimerPage extends StatelessWidget {
   const TimerPage({Key key}) : super(key: key);
