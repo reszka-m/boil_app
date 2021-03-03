@@ -32,7 +32,13 @@ class Body extends StatelessWidget {
               SingleTile(
                 image: "assets/images/img1.png",
                 name: "Rice",
-                press: () => {Navigator.pushNamed(context, '/timer')},
+                press: () => {
+                  Navigator.pushNamed(context, '/timer',
+                      arguments: TimeModel(
+                        minutes: 1,
+                        seconds: 15,
+                      ))
+                },
               ),
               SingleTile(
                 image: "assets/images/img2.png",
