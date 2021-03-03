@@ -32,6 +32,7 @@ class Body extends StatelessWidget {
               SingleTile(
                 image: "assets/images/img1.png",
                 name: "Rice",
+                press: () => {Navigator.pushNamed(context, '/timer')},
               ),
               SingleTile(
                 image: "assets/images/img2.png",
@@ -62,6 +63,7 @@ class SingleTile extends StatelessWidget {
   }) : super(key: key);
   final String image, name;
   final Function press;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
