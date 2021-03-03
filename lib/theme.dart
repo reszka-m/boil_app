@@ -4,7 +4,7 @@ import 'constants.dart';
 
 ThemeData theme() {
   return ThemeData(
-    scaffoldBackgroundColor: kSecondaryColor,
+    scaffoldBackgroundColor: Color(0xFFEFEFEF),
     textTheme: textTheme(),
     visualDensity: VisualDensity.adaptivePlatformDensity,
   );
