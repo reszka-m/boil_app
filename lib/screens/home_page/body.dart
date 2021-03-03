@@ -16,26 +16,21 @@ class Body extends StatelessWidget {
         SizedBox(
           height: 20,
         ),
-        Expanded(
-          child: GridView.count(
-            padding: EdgeInsets.only(
-                left: kDefaultPadding,
-                right: kDefaultPadding,
-                bottom: kDefaultPadding / 2,
-                top: kDefaultPadding / 2),
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 20,
-            crossAxisCount: 2,
+        SingleChildScrollView(
+          child: Column(
             children: [
               SingleTile(
                 image: "assets/images/img1.png",
                 name: "Rice",
                 press: () => {
-                  Navigator.pushNamed(context, '/timer',
-                      arguments: TimeModel(
-                        minutes: 1,
-                        seconds: 15,
-                      ))
+                  Navigator.pushNamed(
+                    context,
+                    '/timer',
+                    arguments: TimeModel(
+                      minutes: 1,
+                      seconds: 15,
+                    ),
+                  ),
                 },
               ),
               SingleTile(
@@ -74,46 +69,55 @@ class SingleTile extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: Container(
-        child: Column(
-          children: [
-            Container(
-              width: size.width * 0.4,
-              height: size.height * 0.15,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20)),
-                image: DecorationImage(
-                    image: AssetImage(image), fit: BoxFit.cover),
-              ),
-            ),
-            Container(
-              height: 40,
-              padding: EdgeInsets.all(kDefaultPadding / 2),
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                      offset: Offset(0, 10),
-                      blurRadius: 20,
-                      color: kPrimaryColor.withOpacity(0.4)),
-                ],
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
+        child: Row(
+          children: <Widget>[
+            Stack(
+              children: [
+                Container(
+                  color: Colors.grey,
+                  height: size.height * 0.1,
+                  width: size.width - 50,
+                  margin: EdgeInsets.only(
+                      top: kDefaultPadding + 15, left: kDefaultPadding + 30),
                 ),
-              ),
-              child: Row(
-                children: [
-                  Spacer(),
-                  RichText(
-                    text: TextSpan(
-                        text: name.toUpperCase(),
-                        style: Theme.of(context).textTheme.button),
+                Positioned(
+                  right: 45,
+                  top: 55,
+                  child: Container(
+                    width: 150,
+                    height: 30,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        name,
+                        style: TextStyle(fontSize: 25),
+                      ),
+                    ),
                   ),
-                  Spacer(),
-                ],
-              ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                      top: kDefaultPadding, left: kDefaultPadding),
+                  width: size.width * 0.3,
+                  height: size.height * 0.15,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 1,
+                        blurRadius: 4,
+                        offset: Offset(0, 4),
+                      ),
+                    ],
+                    color: Colors.red,
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: AssetImage(image),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
