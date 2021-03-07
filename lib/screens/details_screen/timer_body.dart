@@ -7,9 +7,9 @@ import 'dart:async';
 import 'components/info_bar.dart';
 
 class TimerBody extends StatefulWidget {
-  final TimeModel time;
+  final DataModel data;
 
-  const TimerBody({Key key, this.time}) : super(key: key);
+  const TimerBody({Key key, this.data}) : super(key: key);
 
   @override
   _TimerBodyState createState() => _TimerBodyState();
@@ -35,16 +35,16 @@ class _TimerBodyState extends State<TimerBody> {
         return;
       }
       setState(() {
-        widget.time.seconds -= 1;
-        if (widget.time.seconds < 0) {
-          widget.time.seconds += 60;
-          widget.time.minutes -= 1;
+        widget.data.time.seconds -= 1;
+        if (widget.data.time.seconds < 0) {
+          widget.data.time.seconds += 60;
+          widget.data.time.minutes -= 1;
         }
-        if (widget.time.minutes < 0) {
-          widget.time.minutes = 0;
-          widget.time.seconds = 0;
+        if (widget.data.time.minutes < 0) {
+          widget.data.time.minutes = 0;
+          widget.data.time.seconds = 0;
         }
-        if (widget.time.minutes == 0 && widget.time.seconds == 0) {
+        if (widget.data.time.minutes == 0 && widget.data.time.seconds == 0) {
           this.isCounting = false;
           timer.cancel();
         }
@@ -55,8 +55,8 @@ class _TimerBodyState extends State<TimerBody> {
   void reset() {
     this.isCounting = false;
     setState(() {
-      widget.time.minutes = timeCopy.minutes;
-      widget.time.seconds = timeCopy.seconds;
+      widget.data.time.minutes = timeCopy.minutes;
+      widget.data.time.seconds = timeCopy.seconds;
     });
   }
 
@@ -64,8 +64,8 @@ class _TimerBodyState extends State<TimerBody> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     if (timeCopy.minutes == 0 && timeCopy.seconds == 0) {
-      timeCopy.minutes = widget.time.minutes;
-      timeCopy.seconds = widget.time.seconds;
+      timeCopy.minutes = widget.data.time.minutes;
+      timeCopy.seconds = widget.data.time.seconds;
     }
     return Container(
       width: size.width,
@@ -75,11 +75,11 @@ class _TimerBodyState extends State<TimerBody> {
         children: [
           UpperBar(
             size: size,
-            name: "Rice",
+            name: widget.data.name,
           ),
           InfoBar(
-            imagePath: "assets/images/rice.jpg",
-            text: "El arroz se hierve durante 10 minutos",
+            imagePath: widget.data.imagePath,
+            text: widget.data.info,
           ),
           Container(
             margin: EdgeInsets.symmetric(vertical: kDefaultPadding),
@@ -106,9 +106,9 @@ class _TimerBodyState extends State<TimerBody> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    widget.time.seconds >= 10
-                        ? "${widget.time.minutes.toString()}:${widget.time.seconds.toString()}"
-                        : "${widget.time.minutes.toString()}:0${widget.time.seconds.toString()}",
+                    widget.data.time.seconds >= 10
+                        ? "${widget.data.time.minutes.toString()}:${widget.data.time.seconds.toString()}"
+                        : "${widget.data.time.minutes.toString()}:0${widget.data.time.seconds.toString()}",
                     style: TextStyle(
                         color: kTextColor,
                         fontSize: 70,

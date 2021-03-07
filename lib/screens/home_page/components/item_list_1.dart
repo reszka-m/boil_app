@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:boil_app/screens/details_screen/models/data_model.dart';
 import '../../../constants.dart';
 
 class ItemList1 extends StatelessWidget {
@@ -9,6 +10,17 @@ class ItemList1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<List<DataModel>> data = [
+      // Ryże => data[0]
+      [
+        DataModel(
+          time: TimeModel(minutes: 10, seconds: 0),
+          imagePath: "assets/images/rice.jpg",
+          info: "El arroz se hierve durante 10 minutos",
+          name: "Brown Rice",
+        ),
+      ],
+    ];
     return Expanded(
       child: SingleChildScrollView(
         child: Column(
@@ -20,6 +32,7 @@ class ItemList1 extends StatelessWidget {
                 Navigator.pushNamed(
                   context,
                   '/expanded',
+                  arguments: data[0],
                 ),
               },
             ),

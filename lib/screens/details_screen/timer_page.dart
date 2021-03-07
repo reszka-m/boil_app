@@ -8,10 +8,10 @@ class TimerPage extends StatelessWidget {
   static String routeName = '/timer';
   @override
   Widget build(BuildContext context) {
-    TimeModel time = ModalRoute.of(context).settings.arguments;
+    DataModel data = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       body: Column(
-        children: [TimerBody(time: time)],
+        children: [TimerBody(data: data)],
       ),
     );
 //    return Text(

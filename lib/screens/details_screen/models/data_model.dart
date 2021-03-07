@@ -9,3 +9,17 @@ class TimeModel {
     @required this.seconds,
   });
 }
+
+class DataModel {
+  TimeModel time;
+  String imagePath;
+  String info;
+  String name;
+
+  DataModel({
+    @required this.time,
+    @required this.imagePath,
+    @required this.info,
+    @required this.name,
+  });
+}

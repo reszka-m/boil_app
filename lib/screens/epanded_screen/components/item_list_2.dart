@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 
 class ItemList2 extends StatelessWidget {
+  final List<DataModel> data;
   const ItemList2({
     Key key,
+    this.data,
   }) : super(key: key);
 
   @override
@@ -14,6 +16,7 @@ class ItemList2 extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: <Widget>[
+            // Brown Rice => data[0]
             SingleTile(
               image: "assets/images/rice.jpg",
               name: "Brown Rice",
@@ -21,10 +24,7 @@ class ItemList2 extends StatelessWidget {
                 Navigator.pushNamed(
                   context,
                   '/timer',
-                  arguments: TimeModel(
-                    minutes: 1,
-                    seconds: 15,
-                  ),
+                  arguments: data[0],
                 ),
               },
             ),
