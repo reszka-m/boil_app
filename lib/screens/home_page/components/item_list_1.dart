@@ -19,6 +19,20 @@ class ItemList1 extends StatelessWidget {
           info: "El arroz se hierve durante 10 minutos",
           name: "Brown Rice",
         ),
+        DataModel(
+          time: TimeModel(minutes: 12, seconds: 0),
+          imagePath: "assets/images/rice.jpg",
+          info: "El arroz se hierve durante 10 minutos",
+          name: "White Rice",
+        ),
+      ],
+      [
+        DataModel(
+          time: TimeModel(minutes: 8, seconds: 0),
+          imagePath: "assets/images/pasta.jpg",
+          info: "El pasta se hierve durante 8 minutos",
+          name: "Pasta",
+        )
       ],
     ];
     return Expanded(
