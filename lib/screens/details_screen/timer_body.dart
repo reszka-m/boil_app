@@ -1,12 +1,9 @@
 import 'package:boil_app/screens/details_screen/components/upper_bar.dart';
 import 'package:boil_app/screens/details_screen/models/data_model.dart';
-import 'package:boil_app/screens/home_page/components/item_list_1.dart';
-import 'package:boil_app/theme.dart';
 import 'package:boil_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'components/timer_button.dart';
 import 'components/info_bar.dart';
 
 class TimerBody extends StatefulWidget {
@@ -32,8 +29,6 @@ class _TimerBodyState extends State<TimerBody> {
     setState(() {
       this.isCounting = true;
     });
-    timeCopy.minutes = widget.time.minutes;
-    timeCopy.seconds = widget.time.seconds;
     Timer.periodic(Duration(seconds: 1), (timer) {
       if (isCounting == false) {
         timer.cancel();
@@ -58,9 +53,6 @@ class _TimerBodyState extends State<TimerBody> {
   }
 
   void reset() {
-    if (this.isCounting == false) {
-      return;
-    }
     this.isCounting = false;
     setState(() {
       widget.time.minutes = timeCopy.minutes;
@@ -68,29 +60,13 @@ class _TimerBodyState extends State<TimerBody> {
     });
   }
 
-  void add5s() {
-    setState(() {
-      widget.time.seconds += 5;
-      if (widget.time.seconds >= 60) {
-        widget.time.seconds -= 60;
-        widget.time.minutes += 1;
-      }
-    });
-  }
-
-  void sub5s() {
-    setState(() {
-      widget.time.seconds -= 5;
-      if (widget.time.seconds < 0) {
-        widget.time.seconds += 60;
-        widget.time.minutes -= 1;
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    if (timeCopy.minutes == 0 && timeCopy.seconds == 0) {
+      timeCopy.minutes = widget.time.minutes;
+      timeCopy.seconds = widget.time.seconds;
+    }
     return Container(
       width: size.width,
       child: Column(
@@ -106,21 +82,70 @@ class _TimerBodyState extends State<TimerBody> {
             text: "El arroz se hierve durante 10 minutos",
           ),
           Container(
-            margin: EdgeInsets.symmetric(vertical: size.width * 0.1),
-            width: size.width * .8,
-            height: size.width * .8,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: kPrimaryColor,
-              shape: BoxShape.circle,
-            ),
-            child: Text(
-              "${widget.time.minutes.toString()}:${widget.time.seconds.toString()}",
+            margin: EdgeInsets.symmetric(vertical: kDefaultPadding),
+            width: size.width,
+            height: 3,
+            color: Color(0xFF818181),
+          ),
+          GestureDetector(
+            onTap: this.start,
+            child: Container(
+              margin: EdgeInsets.symmetric(vertical: size.width * 0.1),
+              width: size.width * .8,
+              height: size.width * .8,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: kSecondaryColor,
+                shape: BoxShape.circle,
+                border: Border.all(
+                  width: 3,
+                  color: Color(0xFF9A9A9A),
+                ),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    widget.time.seconds >= 10
+                        ? "${widget.time.minutes.toString()}:${widget.time.seconds.toString()}"
+                        : "${widget.time.minutes.toString()}:0${widget.time.seconds.toString()}",
+                    style: TextStyle(
+                        color: kTextColor,
+                        fontSize: 70,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    this.isCounting == false ? "START" : "STOP",
+                    style: TextStyle(
+                      color: kTextColor,
+                      fontSize: 15,
+                    ),
+                  ),
+                ],
+              ),
 //        "1:15",
-              style: TextStyle(
-                  color: kTextColor, fontSize: 70, fontWeight: FontWeight.bold),
             ),
           ),
+          GestureDetector(
+            onTap: this.reset,
+            child: Container(
+              width: size.width * 0.45,
+              height: 34,
+              decoration: BoxDecoration(
+                  color: kSecondaryColor,
+                  border: Border.all(color: Color(0xFF555555)),
+                  borderRadius: BorderRadius.all(Radius.circular(17.0))),
+              child: Center(
+                child: Text(
+                  "RESET TIMER",
+                  style: TextStyle(
+                    color: kTextColor,
+                    fontSize: 14,
+                  ),
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );

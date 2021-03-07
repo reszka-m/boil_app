@@ -1,7 +1,3 @@
-import 'dart:async';
-
-import 'package:boil_app/constants.dart';
-import 'package:boil_app/screens/details_screen/models/data_model.dart';
 import 'package:boil_app/screens/home_page/components/upper_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';

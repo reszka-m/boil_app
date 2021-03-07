@@ -1,6 +1,4 @@
-import 'package:boil_app/screens/details_screen/models/data_model.dart';
 import 'package:flutter/material.dart';
-import 'package:boil_app/screens/home_page/components/item_list_1.dart';
 
 import '../../../constants.dart';
 

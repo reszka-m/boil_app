@@ -1,4 +1,3 @@
-import 'package:boil_app/screens/details_screen/models/data_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -119,7 +118,6 @@ class SingleTile extends StatelessWidget {
                         offset: Offset(0, 4),
                       ),
                     ],
-                    
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       image: AssetImage(image),
