@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 
-class ItemList1 extends StatelessWidget {
-  const ItemList1({
+class ItemList2 extends StatelessWidget {
+  const ItemList2({
     Key key,
   }) : super(key: key);
 
@@ -16,33 +16,37 @@ class ItemList1 extends StatelessWidget {
           children: <Widget>[
             SingleTile(
               image: "assets/images/rice.jpg",
-              name: "Rice",
+              name: "Brown Rice",
               press: () => {
                 Navigator.pushNamed(
                   context,
-                  '/expanded',
+                  '/timer',
+                  arguments: TimeModel(
+                    minutes: 1,
+                    seconds: 15,
+                  ),
                 ),
               },
             ),
             SingleTile(
               image: "assets/images/pasta.jpg",
-              name: "Pasta",
+              name: "American Rice",
             ),
             SingleTile(
               image: "assets/images/potatoes.jpg",
-              name: "Potatoes",
+              name: "Other Rice",
             ),
             SingleTile(
               image: "assets/images/eggs.jpg",
-              name: "Eggs",
+              name: "Different Rice",
             ),
             SingleTile(
               image: "assets/images/pasta.jpg",
-              name: "Pasta",
+              name: "Your Rice",
             ),
             SingleTile(
               image: "assets/images/pasta.jpg",
-              name: "Pasta",
+              name: "Hard Boiled Eggs",
             ),
           ],
         ),
@@ -86,10 +90,13 @@ class SingleTile extends StatelessWidget {
                     height: 30,
                     child: Align(
                       alignment: Alignment.center,
-                      child: Text(
-                        name,
-                        style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
+                      child: FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text(
+                          name,
+                          style: TextStyle(
+                              fontSize: 25, fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),

@@ -1,12 +1,6 @@
-import 'dart:async';
-
-import 'package:boil_app/constants.dart';
-import 'package:boil_app/screens/details_screen/models/data_model.dart';
-import 'package:boil_app/screens/home_page/components/upper_bar.dart';
+import 'package:boil_app/screens/epanded_screen/components/item_list_2.dart';
+import 'package:boil_app/screens/epanded_screen/components/upper_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-
-import 'components/item_list_1.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -18,7 +12,7 @@ class Body extends StatelessWidget {
         SizedBox(
           height: 10,
         ),
-        ItemList1(),
+        ItemList2(),
       ],
     );
   }
