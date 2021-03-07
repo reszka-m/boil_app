@@ -1,10 +1,13 @@
+import 'package:boil_app/screens/details_screen/components/upper_bar.dart';
 import 'package:boil_app/screens/details_screen/models/data_model.dart';
+import 'package:boil_app/screens/home_page/components/item_list_1.dart';
 import 'package:boil_app/theme.dart';
 import 'package:boil_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'components/timer_button.dart';
+import 'components/info_bar.dart';
 
 class TimerBody extends StatefulWidget {
   final TimeModel time;
@@ -21,9 +24,14 @@ class _TimerBodyState extends State<TimerBody> {
 
   void start() {
     if (this.isCounting == true) {
+      setState(() {
+        this.isCounting = false;
+      });
       return;
     }
-    this.isCounting = true;
+    setState(() {
+      this.isCounting = true;
+    });
     timeCopy.minutes = widget.time.minutes;
     timeCopy.seconds = widget.time.seconds;
     Timer.periodic(Duration(seconds: 1), (timer) {
@@ -89,6 +97,14 @@ class _TimerBodyState extends State<TimerBody> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          UpperBar(
+            size: size,
+            name: "Rice",
+          ),
+          InfoBar(
+            imagePath: "assets/images/rice.jpg",
+            text: "El arroz se hierve durante 10 minutos",
+          ),
           Container(
             margin: EdgeInsets.symmetric(vertical: size.width * 0.1),
             width: size.width * .8,
@@ -105,20 +121,6 @@ class _TimerBodyState extends State<TimerBody> {
                   color: kTextColor, fontSize: 70, fontWeight: FontWeight.bold),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              TimerButton(size: size, function: this.start, str: 'Start'),
-              TimerButton(size: size, function: this.reset, str: 'Reset'),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              TimerButton(size: size, function: this.add5s, str: '+5s'),
-              TimerButton(size: size, function: this.sub5s, str: '-5s'),
-            ],
-          )
         ],
       ),
     );
