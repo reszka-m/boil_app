@@ -76,7 +76,16 @@ class SingleTile extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                  color: kSecondaryColor,
+                  decoration: BoxDecoration(
+                    color: kSecondaryColor,
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 5,
+                        color: Colors.grey.withOpacity(0.5),
+                        offset: Offset(0, 0),
+                      ),
+                    ],
+                  ),
                   height: size.height * 0.1,
                   width: size.width - 50,
                   margin: EdgeInsets.only(
@@ -115,7 +124,6 @@ class SingleTile extends StatelessWidget {
                         offset: Offset(0, 4),
                       ),
                     ],
-                    color: Colors.red,
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       image: AssetImage(image),
