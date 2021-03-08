@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:boil_app/constants.dart';
 import 'package:boil_app/screens/details_screen/models/data_model.dart';
+import 'package:flutter/services.dart';
 
 class Clock extends StatefulWidget {
   bool isCounting;
@@ -92,7 +93,6 @@ class _ClockState extends State<Clock> {
           widget.data.time.seconds = 0;
         }
         if (widget.data.time.minutes == 0 && widget.data.time.seconds == 0) {
-          FlutterRingtonePlayer
           widget.isCounting = false;
           timer.cancel();
         }
