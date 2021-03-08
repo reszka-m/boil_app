@@ -5,16 +5,21 @@ import 'package:boil_app/constants.dart';
 import 'package:boil_app/screens/details_screen/models/data_model.dart';
 
 class Clock extends StatefulWidget {
+  bool isCounting;
   final Size size;
   final DataModel data;
-  Clock({Key key, @required this.size, @required this.data}) : super(key: key);
+  Clock(
+      {Key key,
+      @required this.size,
+      @required this.data,
+      @required this.isCounting})
+      : super(key: key);
 
   @override
   _ClockState createState() => _ClockState();
 }
 
 class _ClockState extends State<Clock> {
-  bool isCounting = false;
   TimeModel timeCopy = TimeModel(seconds: 0, minutes: 0);
   @override
   Widget build(BuildContext context) {
@@ -47,7 +52,7 @@ class _ClockState extends State<Clock> {
                     fontWeight: FontWeight.bold),
               ),
               Text(
-                this.isCounting == false ? "START" : "STOP",
+                widget.isCounting == false ? "START" : "STOP",
                 style: TextStyle(
                   color: kTextColor,
                   fontSize: 15,
@@ -62,17 +67,17 @@ class _ClockState extends State<Clock> {
   }
 
   void start() {
-    if (this.isCounting == true) {
+    if (widget.isCounting == true) {
       setState(() {
-        this.isCounting = false;
+        widget.isCounting = false;
       });
       return;
     }
     setState(() {
-      this.isCounting = true;
+      widget.isCounting = true;
     });
     Timer.periodic(Duration(seconds: 1), (timer) {
-      if (isCounting == false) {
+      if (widget.isCounting == false) {
         timer.cancel();
         return;
       }
@@ -87,7 +92,8 @@ class _ClockState extends State<Clock> {
           widget.data.time.seconds = 0;
         }
         if (widget.data.time.minutes == 0 && widget.data.time.seconds == 0) {
-          this.isCounting = false;
+          FlutterRingtonePlayer
+          widget.isCounting = false;
           timer.cancel();
         }
       });

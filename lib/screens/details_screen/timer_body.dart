@@ -49,7 +49,11 @@ class _TimerBodyState extends State<TimerBody> {
             height: 3,
             color: Color(0xFF818181),
           ),
-          Clock(size: size, data: widget.data),
+          Clock(
+            size: size,
+            data: widget.data,
+            isCounting: this.isCounting,
+          ),
           ResetButton(size: size, reset: reset),
         ],
       ),
