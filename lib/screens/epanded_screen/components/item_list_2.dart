@@ -15,40 +15,7 @@ class ItemList2 extends StatelessWidget {
     return Expanded(
       child: SingleChildScrollView(
         child: Column(
-          children: <Widget>[
-            // Brown Rice => data[0]
-            SingleTile(
-              image: "assets/images/rice.jpg",
-              name: "Brown Rice",
-              press: () => {
-                Navigator.pushNamed(
-                  context,
-                  '/timer',
-                  arguments: data[0],
-                ),
-              },
-            ),
-            SingleTile(
-              image: "assets/images/pasta.jpg",
-              name: "American Rice",
-            ),
-            SingleTile(
-              image: "assets/images/potatoes.jpg",
-              name: "Other Rice",
-            ),
-            SingleTile(
-              image: "assets/images/eggs.jpg",
-              name: "Different Rice",
-            ),
-            SingleTile(
-              image: "assets/images/pasta.jpg",
-              name: "Your Rice",
-            ),
-            SingleTile(
-              image: "assets/images/pasta.jpg",
-              name: "Hard Boiled Eggs",
-            ),
-          ],
+          children: generateTiles(context, data),
         ),
       ),
     );
@@ -138,4 +105,27 @@ class SingleTile extends StatelessWidget {
       ),
     );
   }
+}
+
+List<SingleTile> generateTiles(
+  BuildContext context,
+  List<DataModel> data,
+) {
+  List<SingleTile> tiles = [];
+  for (var i = 0; i < data.length; i++) {
+    tiles.add(
+      SingleTile(
+        image: data[i].imagePath,
+        name: data[i].name,
+        press: () => {
+          Navigator.pushNamed(
+            context,
+            '/timer',
+            arguments: data[i],
+          ),
+        },
+      ),
+    );
+  }
+  return tiles;
 }
