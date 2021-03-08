@@ -121,7 +121,12 @@ List<SingleTile> generateTiles(
           Navigator.pushNamed(
             context,
             '/timer',
-            arguments: data[i],
+            arguments: DataModel(
+              time: data[i].time,
+              imagePath: data[i].imagePath,
+              info: data[i].info,
+              name: data[i].name,
+            ),
           ),
         },
       ),

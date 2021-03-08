@@ -1,3 +1,5 @@
+import 'package:boil_app/screens/details_screen/components/clock.dart';
+import 'package:boil_app/screens/details_screen/components/reset_button.dart';
 import 'package:boil_app/screens/details_screen/components/upper_bar.dart';
 import 'package:boil_app/screens/details_screen/models/data_model.dart';
 import 'package:boil_app/constants.dart';
@@ -19,47 +21,6 @@ class _TimerBodyState extends State<TimerBody> {
   bool isCounting = false;
   TimeModel timeCopy = TimeModel(seconds: 0, minutes: 0);
 
-  void start() {
-    if (this.isCounting == true) {
-      setState(() {
-        this.isCounting = false;
-      });
-      return;
-    }
-    setState(() {
-      this.isCounting = true;
-    });
-    Timer.periodic(Duration(seconds: 1), (timer) {
-      if (isCounting == false) {
-        timer.cancel();
-        return;
-      }
-      setState(() {
-        widget.data.time.seconds -= 1;
-        if (widget.data.time.seconds < 0) {
-          widget.data.time.seconds += 60;
-          widget.data.time.minutes -= 1;
-        }
-        if (widget.data.time.minutes < 0) {
-          widget.data.time.minutes = 0;
-          widget.data.time.seconds = 0;
-        }
-        if (widget.data.time.minutes == 0 && widget.data.time.seconds == 0) {
-          this.isCounting = false;
-          timer.cancel();
-        }
-      });
-    });
-  }
-
-  void reset() {
-    this.isCounting = false;
-    setState(() {
-      widget.data.time.minutes = timeCopy.minutes;
-      widget.data.time.seconds = timeCopy.seconds;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -76,6 +37,7 @@ class _TimerBodyState extends State<TimerBody> {
           UpperBar(
             size: size,
             name: widget.data.name,
+            reset: reset,
           ),
           InfoBar(
             imagePath: widget.data.imagePath,
@@ -87,67 +49,18 @@ class _TimerBodyState extends State<TimerBody> {
             height: 3,
             color: Color(0xFF818181),
           ),
-          GestureDetector(
-            onTap: this.start,
-            child: Container(
-              margin: EdgeInsets.symmetric(vertical: size.width * 0.1),
-              width: size.width * .8,
-              height: size.width * .8,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: kSecondaryColor,
-                shape: BoxShape.circle,
-                border: Border.all(
-                  width: 3,
-                  color: Color(0xFF9A9A9A),
-                ),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    widget.data.time.seconds >= 10
-                        ? "${widget.data.time.minutes.toString()}:${widget.data.time.seconds.toString()}"
-                        : "${widget.data.time.minutes.toString()}:0${widget.data.time.seconds.toString()}",
-                    style: TextStyle(
-                        color: kTextColor,
-                        fontSize: 70,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    this.isCounting == false ? "START" : "STOP",
-                    style: TextStyle(
-                      color: kTextColor,
-                      fontSize: 15,
-                    ),
-                  ),
-                ],
-              ),
-//        "1:15",
-            ),
-          ),
-          GestureDetector(
-            onTap: this.reset,
-            child: Container(
-              width: size.width * 0.45,
-              height: 34,
-              decoration: BoxDecoration(
-                  color: kSecondaryColor,
-                  border: Border.all(color: Color(0xFF555555)),
-                  borderRadius: BorderRadius.all(Radius.circular(17.0))),
-              child: Center(
-                child: Text(
-                  "RESET TIMER",
-                  style: TextStyle(
-                    color: kTextColor,
-                    fontSize: 14,
-                  ),
-                ),
-              ),
-            ),
-          )
+          Clock(size: size, data: widget.data),
+          ResetButton(size: size, reset: reset),
         ],
       ),
     );
+  }
+
+  void reset() {
+    this.isCounting = false;
+    setState(() {
+      widget.data.time.minutes = timeCopy.minutes;
+      widget.data.time.seconds = timeCopy.seconds;
+    });
   }
 }

@@ -7,10 +7,12 @@ class UpperBar extends StatelessWidget {
     Key key,
     @required this.size,
     @required this.name,
+    @required this.reset,
   }) : super(key: key);
 
   final Size size;
   final String name;
+  final Function reset;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +42,7 @@ class UpperBar extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () => {
+                  this.reset(),
                   Navigator.pop(context),
                 },
                 icon: Icon(Icons.arrow_back),
