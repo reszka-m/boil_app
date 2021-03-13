@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:boil_app/screens/details_screen/models/data_model.dart';
 import '../../../constants.dart';
 
+import 'package:boil_app/data.dart';
+
 class ItemList1 extends StatelessWidget {
   const ItemList1({
     Key key,
@@ -10,31 +12,8 @@ class ItemList1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<List<DataModel>> data = [
-      // Ryże => data[0]
-      [
-        DataModel(
-          time: TimeModel(minutes: 10, seconds: 0),
-          imagePath: "assets/images/rice.jpg",
-          info: "El arroz se hierve durante 10 minutos",
-          name: "Brown Rice",
-        ),
-        DataModel(
-          time: TimeModel(minutes: 12, seconds: 0),
-          imagePath: "assets/images/rice.jpg",
-          info: "El arroz se hierve durante 10 minutos",
-          name: "White Rice",
-        ),
-      ],
-      [
-        DataModel(
-          time: TimeModel(minutes: 8, seconds: 0),
-          imagePath: "assets/images/pasta.jpg",
-          info: "El pasta se hierve durante 8 minutos",
-          name: "Pasta",
-        )
-      ],
-    ];
+    List<List<DataModel>> data = generateData();
+
     return Expanded(
       child: SingleChildScrollView(
         child: Column(
