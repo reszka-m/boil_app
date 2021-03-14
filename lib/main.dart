@@ -15,8 +15,6 @@ class MyApp extends StatelessWidget {
       theme: theme(),
       initialRoute: '/home',
       routes: routes,
-      //home: HomePage(),
-      //home: TimerPage(time: TimeModel(minutes: 1, seconds: 15)),
     );
   }
 }

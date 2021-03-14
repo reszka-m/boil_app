@@ -3,7 +3,6 @@ import 'dart:async';
 
 import 'package:boil_app/constants.dart';
 import 'package:boil_app/screens/details_screen/models/data_model.dart';
-import 'package:flutter/services.dart';
 
 class Clock extends StatefulWidget {
   bool isCounting;
