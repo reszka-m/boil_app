@@ -1,4 +1,3 @@
-import 'package:boil_app/screens/details_screen/components/sound_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:boil_app/constants.dart';
 
