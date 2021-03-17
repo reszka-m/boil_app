@@ -38,9 +38,10 @@ class UpperBar extends StatelessWidget {
           top: kDefaultPadding,
           right: kDefaultPadding,
           child: IconButton(
+            
             onPressed: () => {},
             icon: Icon(Icons.menu),
-            color: Colors.white,
+            color: kBtnColor,
           ),
         ),
       ],

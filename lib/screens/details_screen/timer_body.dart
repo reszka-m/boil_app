@@ -29,39 +29,49 @@ class _TimerBodyState extends State<TimerBody> {
       timeCopy.minutes = widget.data.time.minutes;
       timeCopy.seconds = widget.data.time.seconds;
     }
-    return Container(
-      width: size.width,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          UpperBar(
-            size: size,
-            name: widget.data.name,
-            reset: reset,
+    return Stack(
+      children: [
+        Column(
+          children: [
+            UpperBar(
+              size: size,
+              name: widget.data.name,
+              reset: reset,
+            ),
+            InfoBar(
+              imagePath: widget.data.imagePath,
+              text: widget.data.info,
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: kDefaultPadding),
+              width: size.width,
+              height: 3,
+              color: Color(0xFF818181),
+            ),
+            Clock(
+              size: size,
+              data: widget.data,
+              isCounting: this.isCounting,
+              soundManager: soundManager,
+            ),
+            ResetButton(
+              size: size,
+              reset: reset,
+            ),
+          ],
+        ),
+        Positioned(
+          bottom: kDefaultPadding,
+          right: kDefaultPadding,
+          child: FloatingActionButton(
+            tooltip: "Add to favourites",
+            backgroundColor: kPrimaryColor,
+            foregroundColor: Color(0xFFEFEFEF),
+            onPressed: () {},
+            child: Icon(Icons.add),
           ),
-          InfoBar(
-            imagePath: widget.data.imagePath,
-            text: widget.data.info,
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: kDefaultPadding),
-            width: size.width,
-            height: 3,
-            color: Color(0xFF818181),
-          ),
-          Clock(
-            size: size,
-            data: widget.data,
-            isCounting: this.isCounting,
-            soundManager: soundManager,
-          ),
-          ResetButton(
-            size: size,
-            reset: reset,
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

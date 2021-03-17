@@ -10,9 +10,7 @@ class TimerPage extends StatelessWidget {
   Widget build(BuildContext context) {
     DataModel data = ModalRoute.of(context).settings.arguments;
     return Scaffold(
-      body: Column(
-        children: [TimerBody(data: data)],
-      ),
+      body: TimerBody(data: data),
     );
 //    return Text(
 //      "${time.minutes.toString()}:${time.seconds.toString()}"

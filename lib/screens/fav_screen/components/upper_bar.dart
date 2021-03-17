@@ -6,13 +6,9 @@ class UpperBar extends StatelessWidget {
   const UpperBar({
     Key key,
     @required this.size,
-    @required this.name,
-    @required this.reset,
   }) : super(key: key);
 
   final Size size;
-  final String name;
-  final Function reset;
 
   @override
   Widget build(BuildContext context) {
@@ -37,31 +33,34 @@ class UpperBar extends StatelessWidget {
           height: 0.105 * size.height,
           padding:
               EdgeInsets.only(left: kDefaultPadding, right: kDefaultPadding),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                onPressed: () => {
-                  this.reset(),
-                  Navigator.pop(context),
-                },
-                icon: Icon(Icons.arrow_back),
-                color: kBtnColor,
-              ),
-              Text(
-                this.name,
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: kBtnColor,
-                ),
-              ),
-              IconButton(
-                onPressed: () => {},
-                icon: Icon(Icons.menu),
-                color: kBtnColor,
-              ),
-            ],
+        ),
+        Positioned(
+          top: kDefaultPadding,
+          right: kDefaultPadding,
+          child: IconButton(
+            onPressed: () => {},
+            icon: Icon(Icons.menu),
+            color: kBtnColor,
+          ),
+        ),
+        Positioned(
+          top: kDefaultPadding + 10,
+          left: size.width * 0.34,
+          child: Text(
+            "Favourites",
+            style: TextStyle(
+                color: kBtnColor, fontSize: 25, fontWeight: FontWeight.bold),
+          ),
+        ),
+        Positioned(
+          top: kDefaultPadding,
+          left: kDefaultPadding,
+          child: IconButton(
+            onPressed: () => {
+              Navigator.pop(context),
+            },
+            icon: Icon(Icons.arrow_back),
+            color: kBtnColor,
           ),
         ),
       ],

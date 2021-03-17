@@ -40,7 +40,7 @@ class UpperBar extends StatelessWidget {
           child: IconButton(
             onPressed: () => {},
             icon: Icon(Icons.menu),
-            color: Colors.white,
+            color: kBtnColor,
           ),
         ),
         Positioned(
@@ -51,7 +51,7 @@ class UpperBar extends StatelessWidget {
               Navigator.pop(context),
             },
             icon: Icon(Icons.arrow_back),
-            color: Colors.white,
+            color: kBtnColor,
           ),
         ),
       ],
