@@ -1,10 +1,11 @@
+import 'package:boil_app/screens/details_screen/components/sound_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:boil_app/constants.dart';
 
 class ResetButton extends StatelessWidget {
   final Size size;
   final Function reset;
-  const ResetButton({
+  ResetButton({
     Key key,
     @required this.size,
     @required this.reset,

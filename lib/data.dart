@@ -10,6 +10,12 @@ List<List<DataModel>> generateData() {
         info: "El arroz se hierve durante 10 minutos",
         name: "Brown Rice",
       ),
+      DataModel(
+        time: TimeModel(minutes: 0, seconds: 10),
+        imagePath: "assets/images/rice.jpg",
+        info: "TEST",
+        name: "TEST",
+      ),
     ],
     [
       // makarony

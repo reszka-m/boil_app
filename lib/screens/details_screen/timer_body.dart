@@ -3,6 +3,7 @@ import 'package:boil_app/screens/details_screen/components/reset_button.dart';
 import 'package:boil_app/screens/details_screen/components/upper_bar.dart';
 import 'package:boil_app/screens/details_screen/models/data_model.dart';
 import 'package:boil_app/constants.dart';
+import 'package:boil_app/screens/details_screen/components/sound_manager.dart';
 import 'package:flutter/material.dart';
 
 import 'components/info_bar.dart';
@@ -19,6 +20,7 @@ class TimerBody extends StatefulWidget {
 class _TimerBodyState extends State<TimerBody> {
   bool isCounting = false;
   TimeModel timeCopy = TimeModel(seconds: 0, minutes: 0);
+  SoundManager soundManager = SoundManager();
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +54,12 @@ class _TimerBodyState extends State<TimerBody> {
             size: size,
             data: widget.data,
             isCounting: this.isCounting,
+            soundManager: soundManager,
           ),
-          ResetButton(size: size, reset: reset),
+          ResetButton(
+            size: size,
+            reset: reset,
+          ),
         ],
       ),
     );
@@ -61,6 +67,7 @@ class _TimerBodyState extends State<TimerBody> {
 
   void reset() {
     this.isCounting = false;
+    soundManager.stopSound();
     setState(() {
       widget.data.time.minutes = timeCopy.minutes;
       widget.data.time.seconds = timeCopy.seconds;

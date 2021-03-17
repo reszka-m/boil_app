@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'dart:async';
 
 import 'package:boil_app/constants.dart';
 import 'package:boil_app/screens/details_screen/models/data_model.dart';
+import 'package:boil_app/screens/details_screen/components/sound_manager.dart';
 
 class Clock extends StatefulWidget {
   bool isCounting;
   final Size size;
   final DataModel data;
-  Clock(
-      {Key key,
-      @required this.size,
-      @required this.data,
-      @required this.isCounting})
-      : super(key: key);
+  SoundManager soundManager;
+  Clock({
+    Key key,
+    @required this.size,
+    @required this.data,
+    @required this.isCounting,
+    @required this.soundManager,
+  }) : super(key: key);
 
   @override
   _ClockState createState() => _ClockState();
@@ -76,6 +80,7 @@ class _ClockState extends State<Clock> {
     setState(() {
       widget.isCounting = true;
     });
+
     Timer.periodic(Duration(seconds: 1), (timer) {
       if (widget.isCounting == false) {
         timer.cancel();
@@ -93,6 +98,7 @@ class _ClockState extends State<Clock> {
         }
         if (widget.data.time.minutes == 0 && widget.data.time.seconds == 0) {
           widget.isCounting = false;
+          widget.soundManager.playSound();
           timer.cancel();
         }
       });
