@@ -23,12 +23,19 @@ class Clock extends StatefulWidget {
 }
 
 class _ClockState extends State<Clock> {
-  TimeModel timeCopy = TimeModel(seconds: 0, minutes: 0);
+  bool isFinished = false;
   @override
   Widget build(BuildContext context) {
     return Container(
       child: GestureDetector(
-        onTap: this.start,
+        onTap: this.isFinished == false
+            ? this.start
+            : () => {
+                  widget.soundManager.stopSound(),
+                  setState(() {
+                    this.isFinished = false;
+                  }),
+                },
         child: Container(
           margin: EdgeInsets.symmetric(vertical: widget.size.width * 0.1),
           width: widget.size.width * .8,
@@ -46,16 +53,22 @@ class _ClockState extends State<Clock> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                widget.data.time.seconds >= 10
-                    ? "${widget.data.time.minutes.toString()}:${widget.data.time.seconds.toString()}"
-                    : "${widget.data.time.minutes.toString()}:0${widget.data.time.seconds.toString()}",
+                this.isFinished == false
+                    ? widget.data.time.seconds >= 10
+                        ? "${widget.data.time.minutes.toString()}:${widget.data.time.seconds.toString()}"
+                        : "${widget.data.time.minutes.toString()}:0${widget.data.time.seconds.toString()}"
+                    : "STOP",
                 style: TextStyle(
                     color: kTextColor,
                     fontSize: 70,
                     fontWeight: FontWeight.bold),
               ),
               Text(
-                widget.isCounting == false ? "START" : "STOP",
+                this.isFinished == false
+                    ? widget.isCounting == false
+                        ? "START"
+                        : "STOP"
+                    : "",
                 style: TextStyle(
                   color: kTextColor,
                   fontSize: 15,
@@ -97,6 +110,7 @@ class _ClockState extends State<Clock> {
         }
         if (widget.data.time.minutes == 0 && widget.data.time.seconds == 0) {
           widget.isCounting = false;
+          this.isFinished = true;
           widget.soundManager.playSound();
           timer.cancel();
         }
