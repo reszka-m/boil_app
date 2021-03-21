@@ -17,6 +17,9 @@ class Body extends StatelessWidget {
               height: 10,
             ),
             ItemList1(),
+            SizedBox(
+              height: 50,
+            ),
           ],
         ),
       ],
