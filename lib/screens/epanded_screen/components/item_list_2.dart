@@ -42,6 +42,7 @@ class SingleTile extends StatelessWidget {
           children: <Widget>[
             Stack(
               children: [
+                //background container
                 Container(
                   decoration: BoxDecoration(
                     color: kSecondaryColor,
@@ -54,13 +55,14 @@ class SingleTile extends StatelessWidget {
                     ],
                   ),
                   height: size.height * 0.1,
-                  width: size.width - 50,
+                  width: size.width * 0.86,
                   margin: EdgeInsets.only(
                       top: kDefaultPadding + 15, left: kDefaultPadding + 30),
                 ),
+                //text container
                 Positioned(
-                  right: 45,
-                  top: 55,
+                  right: size.width * 0.15,
+                  top: size.height * 0.08,
                   child: Container(
                     width: 150,
                     height: 30,
@@ -77,6 +79,7 @@ class SingleTile extends StatelessWidget {
                     ),
                   ),
                 ),
+                //image container
                 Container(
                   margin: EdgeInsets.only(
                       top: kDefaultPadding, left: kDefaultPadding),

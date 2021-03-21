@@ -60,17 +60,6 @@ class _TimerBodyState extends State<TimerBody> {
             ),
           ],
         ),
-        Positioned(
-          bottom: kDefaultPadding,
-          right: kDefaultPadding,
-          child: FloatingActionButton(
-            tooltip: "Add to favourites",
-            backgroundColor: kPrimaryColor,
-            foregroundColor: Color(0xFFEFEFEF),
-            onPressed: () {},
-            child: Icon(Icons.add),
-          ),
-        ),
       ],
     );
   }
