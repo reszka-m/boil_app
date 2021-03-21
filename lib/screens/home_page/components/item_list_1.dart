@@ -45,16 +45,6 @@ class ItemList1 extends StatelessWidget {
               image: "assets/images/pasta.jpg",
               name: "Pasta",
             ),
-            SingleTile(
-              image: "assets/images/pasta.jpg",
-              name: "Custom",
-              press: () => {
-                Navigator.pushNamed(
-                  context,
-                  '/fav',
-                ),
-              },
-            ),
           ],
         ),
       ),
