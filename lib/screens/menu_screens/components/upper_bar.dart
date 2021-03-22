@@ -14,6 +14,10 @@ class UpperBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
+        Text(
+          'Privacy Policy',
+          style: TextStyle(fontSize: 25, color: Colors.red),
+        ),
         Container(
           decoration: BoxDecoration(
             boxShadow: [
@@ -33,37 +37,30 @@ class UpperBar extends StatelessWidget {
           height: 0.105 * size.height,
           padding:
               EdgeInsets.only(left: kDefaultPadding, right: kDefaultPadding),
-        ),
-        //Positioned(
-        //  top: kDefaultPadding,
-        //  right: kDefaultPadding,
-        //  child: IconButton(
-        //    onPressed: () => {},
-        //    icon: Icon(Icons.menu),
-        //    color: kBtnColor,
-        //  ),
-        //),
-        Positioned(
-          top: kDefaultPadding,
-          right: kDefaultPadding,
-          child: PopupMenuButton(
-            icon: Icon(
-              Icons.menu,
-              color: kBtnColor,
-            ),
-            color: kBtnColor,
-            itemBuilder: (BuildContext bc) => [
-              PopupMenuItem(
-                  child: GestureDetector(
-                    child: Text("Privacy Policy"),
-                    onTap: () => {
-                      Navigator.pushNamed(context, '/menuPolicy'),
-                    },
+          child: Row(
+            children: [
+              IconButton(
+                onPressed: () => {
+                  Navigator.pushNamed(context, '/home'),
+                },
+                icon: Icon(Icons.arrow_back),
+                color: kBtnColor,
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                  left: size.width * 0.08,
+                ),
+                width: 200,
+                child: Align(
+                  child: Text(
+                    'Privacy Policy',
+                    style: TextStyle(fontSize: 25, color: kBtnColor),
                   ),
-                  value: "/menuPolicy"),
+                ),
+              ),
             ],
           ),
-        )
+        ),
       ],
     );
   }

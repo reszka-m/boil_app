@@ -111,7 +111,7 @@ class SingleTile extends StatelessWidget {
                 //image container
                 Container(
                   margin: EdgeInsets.only(
-                      top: kDefaultPadding, left: kDefaultPadding),
+                      top: kDefaultPadding * 0.9, left: kDefaultPadding),
                   width: size.width * 0.3,
                   height: size.height * 0.15,
                   decoration: BoxDecoration(

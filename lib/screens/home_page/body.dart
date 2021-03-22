@@ -39,9 +39,6 @@ class _BodyState extends State<Body> {
         Column(
           children: [
             UpperBar(size: size),
-            SizedBox(
-              height: 10,
-            ),
             ItemList1(),
             if (banner == null)
               SizedBox(height: 50)

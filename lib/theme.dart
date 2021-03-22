@@ -4,6 +4,8 @@ import 'constants.dart';
 
 ThemeData theme() {
   return ThemeData(
+    cardColor: kBtnColor,
+    canvasColor: kBtnColor,
     scaffoldBackgroundColor: Color(0xFFEFEFEF),
     textTheme: textTheme(),
     visualDensity: VisualDensity.adaptivePlatformDensity,
