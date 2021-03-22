@@ -10,12 +10,15 @@ class Clock extends StatefulWidget {
   final Size size;
   final DataModel data;
   SoundManager soundManager;
+  Function showAd;
+
   Clock({
     Key key,
     @required this.size,
     @required this.data,
     @required this.isCounting,
     @required this.soundManager,
+    @required this.showAd,
   }) : super(key: key);
 
   @override
@@ -34,6 +37,7 @@ class _ClockState extends State<Clock> {
                   widget.soundManager.stopSound(),
                   setState(() {
                     this.isFinished = false;
+                    widget.showAd();
                   }),
                 },
         child: Container(

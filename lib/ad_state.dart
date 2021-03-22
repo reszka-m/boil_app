@@ -11,6 +11,10 @@ class AdState {
       ? 'ca-app-pub-3940256099942544/6300978111'
       : 'ca-app-pub-3940256099942544/6300978111'; // tu dla zwały jest wpisane
 
+  String get rewardedAdUnitId => Platform.isAndroid
+      ? 'ca-app-pub-3940256099942544/5224354917'
+      : 'ca-app-pub-3940256099942544/5224354917';
+
   AdListener get adListener => _adListener;
 
   AdListener _adListener = AdListener(
