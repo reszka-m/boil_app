@@ -115,6 +115,7 @@ class SingleTile extends StatelessWidget {
                   width: size.width * 0.3,
                   height: size.height * 0.15,
                   decoration: BoxDecoration(
+                    color: kSecondaryColor,
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withOpacity(0.5),

@@ -1,3 +1,4 @@
+import 'package:boil_app/screens/details_screen/models/inner_shadow.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -40,47 +41,51 @@ class _ClockState extends State<Clock> {
                     widget.showAd();
                   }),
                 },
-        child: Container(
-          margin: EdgeInsets.symmetric(vertical: widget.size.width * 0.1),
-          width: widget.size.width * .8,
-          height: widget.size.width * .8,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: kSecondaryColor,
-            shape: BoxShape.circle,
-            border: Border.all(
-              width: 3,
-              color: Color(0xFF9A9A9A),
+        child: InnerShadow(
+          blur: 10,
+          color: kPrimaryColor.withOpacity(0.5),
+          child: Container(
+            margin: EdgeInsets.symmetric(vertical: widget.size.width * 0.1),
+            width: widget.size.width * .8,
+            height: widget.size.width * .8,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: kSecondaryColor,
+              shape: BoxShape.circle,
+              border: Border.all(
+                width: 3,
+                color: Color(0xFF9A9A9A),
+              ),
             ),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                this.isFinished == false
-                    ? widget.data.time.seconds >= 10
-                        ? "${widget.data.time.minutes.toString()}:${widget.data.time.seconds.toString()}"
-                        : "${widget.data.time.minutes.toString()}:0${widget.data.time.seconds.toString()}"
-                    : "STOP",
-                style: TextStyle(
-                    color: kTextColor,
-                    fontSize: 70,
-                    fontWeight: FontWeight.bold),
-              ),
-              Text(
-                this.isFinished == false
-                    ? widget.isCounting == false
-                        ? "START"
-                        : "STOP"
-                    : "",
-                style: TextStyle(
-                  color: kTextColor,
-                  fontSize: 15,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  this.isFinished == false
+                      ? widget.data.time.seconds >= 10
+                          ? "${widget.data.time.minutes.toString()}:${widget.data.time.seconds.toString()}"
+                          : "${widget.data.time.minutes.toString()}:0${widget.data.time.seconds.toString()}"
+                      : "STOP",
+                  style: TextStyle(
+                      color: kTextColor,
+                      fontSize: 70,
+                      fontWeight: FontWeight.bold),
                 ),
-              ),
-            ],
-          ),
+                Text(
+                  this.isFinished == false
+                      ? widget.isCounting == false
+                          ? "START"
+                          : "STOP"
+                      : "",
+                  style: TextStyle(
+                    color: kTextColor,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
 //        "1:15",
+          ),
         ),
       ),
     );

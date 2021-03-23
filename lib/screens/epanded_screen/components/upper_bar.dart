@@ -33,25 +33,38 @@ class UpperBar extends StatelessWidget {
           height: 0.105 * size.height,
           padding:
               EdgeInsets.only(left: kDefaultPadding, right: kDefaultPadding),
-        ),
-        Positioned(
-          top: kDefaultPadding,
-          right: kDefaultPadding,
-          child: IconButton(
-            onPressed: () => {},
-            icon: Icon(Icons.menu),
-            color: kBtnColor,
-          ),
-        ),
-        Positioned(
-          top: kDefaultPadding,
-          left: kDefaultPadding,
-          child: IconButton(
-            onPressed: () => {
-              Navigator.pop(context),
-            },
-            icon: Icon(Icons.arrow_back),
-            color: kBtnColor,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                onPressed: () => {
+                  Navigator.pop(context),
+                },
+                icon: Icon(
+                  Icons.arrow_back,
+                  size: 30,
+                ),
+                color: kBtnColor,
+              ),
+              Text(
+                'BoilApp',
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: kBtnColor,
+                ),
+              ),
+              IconButton(
+                onPressed: () => {
+                  Navigator.pushNamed(context, '/menuPolicy'),
+                },
+                icon: Icon(
+                  Icons.menu_book,
+                  size: 30,
+                ),
+                color: kBtnColor,
+              ),
+            ],
           ),
         ),
       ],

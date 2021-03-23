@@ -45,7 +45,10 @@ class UpperBar extends StatelessWidget {
                   this.reset(),
                   Navigator.pop(context),
                 },
-                icon: Icon(Icons.arrow_back),
+                icon: Icon(
+                  Icons.arrow_back,
+                  size: 30,
+                ),
                 color: kBtnColor,
               ),
               Text(
@@ -57,8 +60,13 @@ class UpperBar extends StatelessWidget {
                 ),
               ),
               IconButton(
-                onPressed: () => {},
-                icon: Icon(Icons.menu),
+                onPressed: () => {
+                  Navigator.pushNamed(context, '/menuPolicy'),
+                },
+                icon: Icon(
+                  Icons.menu_book,
+                  size: 30,
+                ),
                 color: kBtnColor,
               ),
             ],

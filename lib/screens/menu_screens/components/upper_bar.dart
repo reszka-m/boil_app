@@ -14,10 +14,6 @@ class UpperBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        Text(
-          'Privacy Policy',
-          style: TextStyle(fontSize: 25, color: Colors.red),
-        ),
         Container(
           decoration: BoxDecoration(
             boxShadow: [
@@ -38,25 +34,33 @@ class UpperBar extends StatelessWidget {
           padding:
               EdgeInsets.only(left: kDefaultPadding, right: kDefaultPadding),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
                 onPressed: () => {
-                  Navigator.pushNamed(context, '/home'),
+                  Navigator.pop(context),
                 },
-                icon: Icon(Icons.arrow_back),
+                icon: Icon(
+                  Icons.arrow_back,
+                  size: 30,
+                ),
                 color: kBtnColor,
               ),
-              Container(
-                margin: EdgeInsets.only(
-                  left: size.width * 0.08,
+              Text(
+                'Privacy Policy',
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: kBtnColor,
                 ),
-                width: 200,
-                child: Align(
-                  child: Text(
-                    'Privacy Policy',
-                    style: TextStyle(fontSize: 25, color: kBtnColor),
-                  ),
+              ),
+              IconButton(
+                onPressed: () => {},
+                icon: Icon(
+                  Icons.menu_book,
+                  size: 30,
                 ),
+                color: Colors.transparent, //blank btn
               ),
             ],
           ),

@@ -33,37 +33,74 @@ class UpperBar extends StatelessWidget {
           height: 0.105 * size.height,
           padding:
               EdgeInsets.only(left: kDefaultPadding, right: kDefaultPadding),
-        ),
-        //Positioned(
-        //  top: kDefaultPadding,
-        //  right: kDefaultPadding,
-        //  child: IconButton(
-        //    onPressed: () => {},
-        //    icon: Icon(Icons.menu),
-        //    color: kBtnColor,
-        //  ),
-        //),
-        Positioned(
-          top: kDefaultPadding,
-          right: kDefaultPadding,
-          child: PopupMenuButton(
-            icon: Icon(
-              Icons.menu,
-              color: kBtnColor,
-            ),
-            color: kBtnColor,
-            itemBuilder: (BuildContext bc) => [
-              PopupMenuItem(
-                  child: GestureDetector(
-                    child: Text("Privacy Policy"),
-                    onTap: () => {
-                      Navigator.pushNamed(context, '/menuPolicy'),
-                    },
-                  ),
-                  value: "/menuPolicy"),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                onPressed: () => {},
+                icon: Icon(
+                  Icons.arrow_back,
+                  size: 30,
+                ),
+                color: Colors.transparent, //blank btn
+              ),
+              Text(
+                'BoilApp',
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: kBtnColor,
+                ),
+              ),
+              IconButton(
+                onPressed: () => {
+                  Navigator.pushNamed(context, '/menuPolicy'),
+                },
+                icon: Icon(
+                  Icons.menu_book,
+                  size: 30,
+                ),
+                color: kBtnColor,
+              ),
             ],
           ),
-        )
+        ),
+        // Positioned(
+        //   top: kDefaultPadding,
+        //   right: kDefaultPadding,
+        //   child: IconButton(
+        //     onPressed: () => {
+        //       Navigator.pushNamed(context, '/menuPolicy'),
+        //     },
+        //     icon: Icon(
+        //       Icons.menu_book,
+        //       size: 30,
+        //     ),
+        //     color: kBtnColor,
+        //   ),
+        // ),
+        // propably will be removed
+        // Positioned(
+        //   top: kDefaultPadding,
+        //   right: kDefaultPadding,
+        //   child: PopupMenuButton(
+        //     icon: Icon(
+        //       Icons.menu,
+        //       color: kBtnColor,
+        //     ),
+        //     color: kBtnColor,
+        //     itemBuilder: (BuildContext bc) => [
+        //       PopupMenuItem(
+        //           child: GestureDetector(
+        //             child: Text("Privacy Policy"),
+        //             onTap: () => {
+        //               Navigator.pushNamed(context, '/menuPolicy'),
+        //             },
+        //           ),
+        //           value: "/menuPolicy"),
+        //     ],
+        //   ),
+        // ),
       ],
     );
   }

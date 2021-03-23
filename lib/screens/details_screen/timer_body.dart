@@ -67,7 +67,7 @@ class _TimerBodyState extends State<TimerBody> {
               margin: EdgeInsets.symmetric(vertical: kDefaultPadding),
               width: size.width,
               height: 3,
-              color: Color(0xFF818181),
+              color: Color(0xFF818181).withOpacity(0.5),
             ),
             Clock(
               size: size,
