@@ -9,6 +9,8 @@ ThemeData theme() {
     scaffoldBackgroundColor: Color(0xFFEFEFEF),
     textTheme: textTheme(),
     visualDensity: VisualDensity.adaptivePlatformDensity,
+    accentColor: kSecondaryColor.withOpacity(0.5),
+    accentColorBrightness: Brightness.light,
   );
 }
 
