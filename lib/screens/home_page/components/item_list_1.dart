@@ -32,6 +32,13 @@ class ItemList1 extends StatelessWidget {
             SingleTile(
               image: "assets/images/pasta.jpg",
               name: "Pasta",
+              press: () => {
+                Navigator.pushNamed(
+                  context,
+                  '/expanded',
+                  arguments: data[1],
+                ),
+              },
             ),
             SingleTile(
               image: "assets/images/potatoes.jpg",
@@ -43,7 +50,14 @@ class ItemList1 extends StatelessWidget {
             ),
             SingleTile(
               image: "assets/images/pasta.jpg",
-              name: "Pasta",
+              name: "Groats",
+              press: () => {
+                Navigator.pushNamed(
+                  context,
+                  '/expanded',
+                  arguments: data[4],
+                ),
+              },
             ),
           ],
         ),

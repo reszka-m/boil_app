@@ -14,9 +14,6 @@ class Body extends StatelessWidget {
     return Column(
       children: [
         UpperBar(size: size),
-        SizedBox(
-          height: 10,
-        ),
         ItemList2(data: this.data),
       ],
     );
