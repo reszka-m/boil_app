@@ -69,6 +69,16 @@ class _TimerBodyState extends State<TimerBody> {
               height: 3,
               color: Color(0xFF818181).withOpacity(0.5),
             ),
+            Container(
+              height: 20,
+              child: Text(
+                'Turn the timer on when water starts to boil',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                ),
+              ),
+            ),
             Clock(
               size: size,
               data: widget.data,

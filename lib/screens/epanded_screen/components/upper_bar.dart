@@ -31,9 +31,11 @@ class UpperBar extends StatelessWidget {
             ),
           ),
           height: 0.105 * size.height,
-          padding:
-              EdgeInsets.only(left: kDefaultPadding, right: kDefaultPadding,
-              top: kDefaultPadding),
+          padding: EdgeInsets.only(
+            left: kDefaultPadding,
+            right: kDefaultPadding,
+            top: kDefaultPadding + 5,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

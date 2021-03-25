@@ -15,25 +15,37 @@ class InfoBar extends StatelessWidget {
         children: <Widget>[
           Stack(
             children: [
+              //background
               Container(
                 color: kSecondaryColor,
                 height: size.height * 0.1,
                 width: size.width - 50,
                 margin: EdgeInsets.only(
-                    top: kDefaultPadding + 15, left: kDefaultPadding + 30),
+                  top: kDefaultPadding + 15,
+                  left: size.width * 0.138,
+                ),
               ),
-              Positioned(
-                right: 40,
-                top: 50,
-                child: Container(
-                  width: 180,
-                  height: 40,
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      text,
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              // text
+              Container(
+                margin: EdgeInsets.only(
+                  top: kDefaultPadding + 16,
+                  left: size.width * 0.37,
+                ),
+                width: size.width * 0.62,
+                height: 70,
+                child: Scrollbar(
+                  radius: Radius.circular(90),
+                  thickness: 8,
+                  isAlwaysShown: true,
+                  child: SingleChildScrollView(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        text,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                 ),
@@ -52,7 +64,7 @@ class InfoBar extends StatelessWidget {
                       offset: Offset(0, 4),
                     ),
                   ],
-                  color: Colors.red,
+                  color: kSecondaryColor,
                   shape: BoxShape.circle,
                   image: DecorationImage(
                     image: AssetImage(imagePath),

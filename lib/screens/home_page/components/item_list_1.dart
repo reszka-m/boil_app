@@ -102,30 +102,32 @@ class SingleTile extends StatelessWidget {
                   width: size.width * 0.86,
                   margin: EdgeInsets.only(
                     top: kDefaultPadding + 15,
-                    left: kDefaultPadding + 30,
+                    left: size.width * 0.14,
                   ),
                 ),
                 //text container
-                Positioned(
-                  right: size.width * 0.15,
-                  top: size.height * 0.08,
-                  child: Container(
-                    width: 150,
-                    height: 30,
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        name,
-                        style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
-                      ),
+                Container(
+                  margin: EdgeInsets.only(
+                    top: kDefaultPadding + 16,
+                    left: size.width * 0.3,
+                  ),
+                  width: size.width * 0.7,
+                  height: 70,
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      name,
+                      style:
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
                 //image container
                 Container(
                   margin: EdgeInsets.only(
-                      top: kDefaultPadding * 0.9, left: kDefaultPadding),
+                    top: kDefaultPadding * 0.9,
+                    left: kDefaultPadding,
+                  ),
                   width: size.width * 0.3,
                   height: size.height * 0.15,
                   decoration: BoxDecoration(

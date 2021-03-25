@@ -61,11 +61,11 @@ class SingleTile extends StatelessWidget {
                 ),
                 //text container
                 Positioned(
-                  right: size.width * 0.15,
-                  top: size.height * 0.08,
+                  right: 0,
+                  top: size.height * 0.05,
                   child: Container(
-                    width: 150,
-                    height: 30,
+                    width: size.width * 0.7,
+                    height: 70,
                     child: Align(
                       alignment: Alignment.center,
                       child: FittedBox(

@@ -5,15 +5,24 @@ List<List<DataModel>> generateData() {
     [
       // ryże
       DataModel(
+        time: TimeModel(minutes: 0, seconds: 5),
+        imagePath: "assets/images/rice.jpg",
+        info:
+            "Jakis calkiem dlugi tekst co by tu mogl byc potencjalnie lecz nie analnie hehe",
+        name: "TEST",
+      ),
+      DataModel(
         time: TimeModel(minutes: 12, seconds: 0),
         imagePath: "assets/images/rice.jpg",
-        info: "",
+        info:
+            "Jakis calkiem dlugi tekst co by tu mogl byc potencjalnie lecz nie analnie hehe",
         name: "White",
       ),
       DataModel(
         time: TimeModel(minutes: 15, seconds: 0),
         imagePath: "assets/images/rice.jpg",
-        info: "",
+        info:
+            "Jakis calkiem dlugi tekst co by tu mogl byc potencjalnie lecz nie analnie hehe",
         name: "Jasmin",
       ),
       DataModel(
@@ -40,12 +49,7 @@ List<List<DataModel>> generateData() {
         info: "",
         name: "Długoziarnisty ",
       ),
-      DataModel(
-        time: TimeModel(minutes: 10, seconds: 0),
-        imagePath: "assets/images/rice.jpg",
-        info: "",
-        name: "Natural whole grain parboiled",
-      ),
+
       DataModel(
         time: TimeModel(minutes: 30, seconds: 0),
         imagePath: "assets/images/rice.jpg",
