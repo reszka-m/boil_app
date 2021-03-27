@@ -36,7 +36,7 @@ class InfoBar extends StatelessWidget {
                 child: Scrollbar(
                   radius: Radius.circular(90),
                   thickness: 8,
-                  isAlwaysShown: true,
+                  isAlwaysShown: false,
                   child: SingleChildScrollView(
                     child: Align(
                       alignment: Alignment.center,

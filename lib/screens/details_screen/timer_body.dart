@@ -5,9 +5,6 @@ import 'package:boil_app/screens/details_screen/models/data_model.dart';
 import 'package:boil_app/constants.dart';
 import 'package:boil_app/screens/details_screen/components/sound_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:boil_app/ad_state.dart';
-import 'package:provider/provider.dart';
 
 import 'components/info_bar.dart';
 
@@ -25,26 +22,8 @@ class _TimerBodyState extends State<TimerBody> {
   TimeModel timeCopy = TimeModel(seconds: 0, minutes: 0);
   SoundManager soundManager = SoundManager();
 
-  RewardedAd rewardedAd;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    final adState = Provider.of<AdState>(context);
-    adState.initialization.then((status) {
-      setState(() {
-        rewardedAd = RewardedAd(
-          adUnitId: adState.rewardedAdUnitId,
-          request: AdRequest(),
-          listener: adState.adListener,
-        )..load();
-      });
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    rewardedAd.load();
     Size size = MediaQuery.of(context).size;
     if (timeCopy.minutes == 0 && timeCopy.seconds == 0) {
       timeCopy.minutes = widget.data.time.minutes;
@@ -84,7 +63,6 @@ class _TimerBodyState extends State<TimerBody> {
               data: widget.data,
               isCounting: this.isCounting,
               soundManager: soundManager,
-              showAd: rewardedAd.show,
             ),
             ResetButton(
               size: size,

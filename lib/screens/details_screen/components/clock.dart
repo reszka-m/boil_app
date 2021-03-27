@@ -5,13 +5,13 @@ import 'dart:async';
 import 'package:boil_app/constants.dart';
 import 'package:boil_app/screens/details_screen/models/data_model.dart';
 import 'package:boil_app/screens/details_screen/components/sound_manager.dart';
+import 'package:boil_app/screens/home_page/body.dart';
 
 class Clock extends StatefulWidget {
   bool isCounting;
   final Size size;
   final DataModel data;
   SoundManager soundManager;
-  Function showAd;
 
   Clock({
     Key key,
@@ -19,7 +19,6 @@ class Clock extends StatefulWidget {
     @required this.data,
     @required this.isCounting,
     @required this.soundManager,
-    @required this.showAd,
   }) : super(key: key);
 
   @override
@@ -38,7 +37,7 @@ class _ClockState extends State<Clock> {
                   widget.soundManager.stopSound(),
                   setState(() {
                     this.isFinished = false;
-                    widget.showAd();
+                    rewardedAd.show();
                   }),
                 },
         child: InnerShadow(

@@ -7,14 +7,17 @@ import 'package:provider/provider.dart';
 import '../../constants.dart';
 import 'components/item_list_1.dart';
 
+RewardedAd rewardedAd;
+BannerAd banner;
+BannerAd
+    bannerExpanded; // same AdWidget can't be rendered second time on screen pushed by Navigator
+
 class Body extends StatefulWidget {
   @override
   _BodyState createState() => _BodyState();
 }
 
 class _BodyState extends State<Body> {
-  BannerAd banner;
-
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -24,6 +27,17 @@ class _BodyState extends State<Body> {
         banner = BannerAd(
           adUnitId: adState.bannerAdUnitId,
           size: AdSize.banner,
+          request: AdRequest(),
+          listener: adState.adListener,
+        )..load();
+        bannerExpanded = BannerAd(
+          adUnitId: adState.bannerAdUnitId,
+          size: AdSize.banner,
+          request: AdRequest(),
+          listener: adState.adListener,
+        )..load();
+        rewardedAd = RewardedAd(
+          adUnitId: adState.rewardedAdUnitId,
           request: AdRequest(),
           listener: adState.adListener,
         )..load();
