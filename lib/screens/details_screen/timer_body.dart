@@ -29,48 +29,55 @@ class _TimerBodyState extends State<TimerBody> {
       timeCopy.minutes = widget.data.time.minutes;
       timeCopy.seconds = widget.data.time.seconds;
     }
-    return Stack(
-      children: [
-        Column(
-          children: [
-            UpperBar(
-              size: size,
-              name: widget.data.name,
-              reset: reset,
-            ),
-            InfoBar(
-              imagePath: widget.data.imagePath,
-              text: widget.data.info,
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(vertical: kDefaultPadding),
-              width: size.width,
-              height: 3,
-              color: Color(0xFF818181).withOpacity(0.5),
-            ),
-            Container(
-              height: 20,
-              child: Text(
-                'Turn the timer on when water starts to boil',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
+
+    return WillPopScope(
+      onWillPop: () async {
+        reset();
+        return true;
+      },
+      child: Stack(
+        children: [
+          Column(
+            children: [
+              UpperBar(
+                size: size,
+                name: widget.data.name,
+                reset: reset,
+              ),
+              InfoBar(
+                imagePath: widget.data.imagePath,
+                text: widget.data.info,
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: kDefaultPadding),
+                width: size.width,
+                height: 3,
+                color: Color(0xFF818181).withOpacity(0.5),
+              ),
+              Container(
+                height: 20,
+                child: Text(
+                  'Turn the timer on when water starts to boil',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
                 ),
               ),
-            ),
-            Clock(
-              size: size,
-              data: widget.data,
-              isCounting: this.isCounting,
-              soundManager: soundManager,
-            ),
-            ResetButton(
-              size: size,
-              reset: reset,
-            ),
-          ],
-        ),
-      ],
+              Clock(
+                size: size,
+                data: widget.data,
+                isCounting: this.isCounting,
+                soundManager: soundManager,
+              ),
+              ResetButton(
+                size: size,
+                reset: reset,
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
