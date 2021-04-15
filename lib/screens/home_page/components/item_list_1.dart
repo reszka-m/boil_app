@@ -19,7 +19,7 @@ class ItemList1 extends StatelessWidget {
         child: Column(
           children: <Widget>[
             SingleTile(
-              image: "assets/images/rice.jpg",
+              image: "assets/images/rice/rice.jpg",
               name: "Rice",
               press: () => {
                 Navigator.pushNamed(
@@ -30,7 +30,7 @@ class ItemList1 extends StatelessWidget {
               },
             ),
             SingleTile(
-              image: "assets/images/pasta.jpg",
+              image: "assets/images/pasta/randomPasta3.jpg",
               name: "Pasta",
               press: () => {
                 Navigator.pushNamed(
@@ -41,15 +41,29 @@ class ItemList1 extends StatelessWidget {
               },
             ),
             SingleTile(
-              image: "assets/images/potatoes.jpg",
+              image: "assets/images/potatoes/potatoes.jpg",
               name: "Potatoes",
+              press: () => {
+                Navigator.pushNamed(
+                  context,
+                  '/expanded',
+                  arguments: data[2],
+                ),
+              },
             ),
             SingleTile(
-              image: "assets/images/eggs.jpg",
+              image: "assets/images/eggs/eggs1.jpg",
               name: "Eggs",
+              press: () => {
+                Navigator.pushNamed(
+                  context,
+                  '/expanded',
+                  arguments: data[3],
+                ),
+              },
             ),
             SingleTile(
-              image: "assets/images/pasta.jpg",
+              image: "assets/images/groats/groats.jpg",
               name: "Groats",
               press: () => {
                 Navigator.pushNamed(
