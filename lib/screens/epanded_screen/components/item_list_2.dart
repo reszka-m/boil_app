@@ -64,7 +64,7 @@ class SingleTile extends StatelessWidget {
                   right: 0,
                   top: size.height * 0.05,
                   child: Container(
-                    width: size.width * 0.7,
+                    width: size.width * 0.65,
                     height: 70,
                     child: Align(
                       alignment: Alignment.center,
