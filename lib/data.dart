@@ -115,7 +115,7 @@ List<List<DataModel>> generateData() {
       ),
       DataModel(
         time: TimeModel(minutes: 9, seconds: 0),
-        imagePath: "assets/images/pasta/spaghetti3.jpg",
+        imagePath: "assets/images/pasta/spaghetti3.png",
         info: "",
         name: "Spaghetti",
       ),
@@ -152,7 +152,7 @@ List<List<DataModel>> generateData() {
       //pełne ziarno
       DataModel(
         time: TimeModel(minutes: 6, seconds: 0),
-        imagePath: "assets/images/pasta/whole grain/swidry fussili.jpg",
+        imagePath: "assets/images/pasta/whole grain/swidry fusilli.jpg",
         info: "",
         name: "Świdry fusilli",
       ),
