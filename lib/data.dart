@@ -103,13 +103,13 @@ List<List<DataModel>> generateData() {
       //regular ass pasta
       DataModel(
         time: TimeModel(minutes: 10, seconds: 0),
-        imagePath: "assets/images/pasta/penne.jpg",
+        imagePath: "assets/images/pasta/penne.png",
         info: "",
         name: "Penne rigate",
       ),
       DataModel(
         time: TimeModel(minutes: 7, seconds: 0),
-        imagePath: "assets/images/pasta/tagiatelle.jpg",
+        imagePath: "assets/images/pasta/tagiatelle.png",
         info: "",
         name: "Tagiatelle",
       ),
@@ -185,25 +185,25 @@ List<List<DataModel>> generateData() {
       // ziemniaki
       DataModel(
         time: TimeModel(minutes: 25, seconds: 0),
-        imagePath: "assets/images/pasta/nitki.jpg",
+        imagePath: "assets/images/potatoes/potatoes.jpg",
         info: "After 20 minutes check if they are fine with a fork",
         name: "Potatoes",
       ),
       DataModel(
         time: TimeModel(minutes: 15, seconds: 0),
-        imagePath: "assets/images/pasta/nitki.jpg",
+        imagePath: "assets/images/potatoes/potatoes.jpg",
         info: "",
         name: "Potatoes quarters",
       ),
       DataModel(
         time: TimeModel(minutes: 15, seconds: 0),
-        imagePath: "assets/images/pasta/nitki.jpg",
+        imagePath: "assets/images/potatoes/potatoes.jpg",
         info: "",
         name: "Young potatoes",
       ),
       DataModel(
         time: TimeModel(minutes: 30, seconds: 0),
-        imagePath: "assets/images/pasta/nitki.jpg",
+        imagePath: "assets/images/potatoes/potatoes.jpg",
         info: "",
         name: "Sweet potatoes",
       ),
@@ -212,25 +212,25 @@ List<List<DataModel>> generateData() {
       // jajka
       DataModel(
         time: TimeModel(minutes: 3, seconds: 30),
-        imagePath: "assets/images/pasta/nitki.jpg",
+        imagePath: "assets/images/eggs/eggs1.jpg",
         info: "",
         name: "Small egg soft",
       ),
       DataModel(
         time: TimeModel(minutes: 4, seconds: 0),
-        imagePath: "assets/images/pasta/nitki.jpg",
+        imagePath: "assets/images/eggs/eggs1.jpg",
         info: "",
         name: "Medium egg soft",
       ),
       DataModel(
         time: TimeModel(minutes: 5, seconds: 30),
-        imagePath: "assets/images/pasta/nitki.jpg",
+        imagePath: "assets/images/eggs/eggs1.jpg",
         info: "",
         name: "Large egg soft",
       ),
       DataModel(
         time: TimeModel(minutes: 8, seconds: 0),
-        imagePath: "assets/images/pasta/nitki.jpg",
+        imagePath: "assets/images/eggs/eggs1.jpg",
         info: "",
         name: "Egg hard",
       ),
