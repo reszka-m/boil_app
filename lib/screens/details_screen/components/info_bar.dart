@@ -19,7 +19,7 @@ class InfoBar extends StatelessWidget {
               Container(
                 color: kSecondaryColor,
                 height: size.height * 0.1,
-                width: size.width - 50,
+                width: size.width * 0.862,
                 margin: EdgeInsets.only(
                   top: kDefaultPadding + 15,
                   left: size.width * 0.138,
@@ -31,23 +31,28 @@ class InfoBar extends StatelessWidget {
                   top: kDefaultPadding + 16,
                   left: size.width * 0.37,
                 ),
-                width: size.width * 0.62,
-                height: 70,
-                child: Scrollbar(
-                  radius: Radius.circular(90),
-                  thickness: 8,
-                  isAlwaysShown: false,
-                  child: SingleChildScrollView(
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        text,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
+                width: size.width * 0.58,
+                height: size.height * 0.095,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Scrollbar(
+                      radius: Radius.circular(90),
+                      thickness: 8,
+                      isAlwaysShown: false,
+                      child: SingleChildScrollView(
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            text,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ),
               Container(

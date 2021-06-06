@@ -21,7 +21,7 @@ List<List<DataModel>> generateData() {
       DataModel(
         time: TimeModel(minutes: 15, seconds: 0),
         imagePath: "assets/images/rice/rice.jpg",
-        info: "",
+        info: "Basmati rice should be boiled around 15 minutes.",
         name: "Basmati",
       ),
       DataModel(
