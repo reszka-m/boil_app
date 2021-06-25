@@ -27,44 +27,44 @@ List<List<DataModel>> generateData() {
       DataModel(
         time: TimeModel(minutes: 15, seconds: 0),
         imagePath: "assets/images/rice/rice.jpg",
-        info: "",
+        info: "American rice should be boiled around 15 minutes",
         name: "American",
       ),
       DataModel(
         time: TimeModel(minutes: 15, seconds: 0),
         imagePath: "assets/images/rice/rice.jpg",
-        info: "",
-        name: "Biały długi ",
+        info: "Long-grain white rice should be boiled around 15 minutes",
+        name: "Long-grain white",
       ),
       DataModel(
         time: TimeModel(minutes: 10, seconds: 0),
         imagePath: "assets/images/rice/rice.jpg",
-        info: "",
-        name: "Długoziarnisty ",
+        info: "Long-grain rice should be boiled around 10 minutes",
+        name: "Long-grain",
       ),
 
       DataModel(
         time: TimeModel(minutes: 30, seconds: 0),
         imagePath: "assets/images/rice/brown.jpg",
-        info: "",
+        info: "Natural brown rice should be boiled around 30 minutes",
         name: "Natural brown",
       ),
       DataModel(
         time: TimeModel(minutes: 15, seconds: 0),
         imagePath: "assets/images/rice/randomRice.jpg",
-        info: "",
+        info: "Arborio risotto rice should be boiled around 15 minutes",
         name: "Arborio Risotto",
       ),
       DataModel(
         time: TimeModel(minutes: 20, seconds: 0),
         imagePath: "assets/images/rice/randomRice.jpg",
-        info: "",
+        info: "Wild and parboiled rice should be boiled around 20 minutes",
         name: "Wild & parboiled",
       ),
       DataModel(
         time: TimeModel(minutes: 30, seconds: 0),
         imagePath: "assets/images/rice/randomRice.jpg",
-        info: "",
+        info: "Wild rice should be boiled around 30 minutes",
         name: "Wild",
       ),
       DataModel(
